@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlaneLimits : MonoBehaviour
 {
     private float limXPos = 10f;
-    private float limXNeg = 10f;
+    private float limXNeg = -10f;
     private float limZPos = 5f;
-    private float limZNeg = 5f;
-
+    private float limZNeg = -5f;
+    
     // Start is called before the first frame update
     void Start()
     {
-       // transform.position = new Vector3(0, 0.5, 0);
+        transform.position = new Vector3(x: 0f,y:  0.5f,z: 0f);
     }
 
     // Update is called once per frame
@@ -41,5 +41,41 @@ public class PlaneLimits : MonoBehaviour
         {
             transform.Translate(Vector3.left);
         }
+
+        /* if (transform.position.x >= limXPos)
+         {
+             transform.position = new Vector3(limXPos, transform.position.y, transform.position.z);
+         }
+         if (transform.position.x <= limXNeg)
+         {
+             transform.position = new Vector3(limXNeg, transform.position.y, transform.position.z);
+         }
+         if (transform.position.x >= limZPos)
+         {
+             transform.position = new Vector3(transform.position.x, limZPos, transform.position.z);
+         }
+         if (transform.position.x <= limZNeg)
+         {
+             transform.position = new Vector3(transform.position.x, limZNeg, transform.position.z);
+         }
+        */
+        if (transform.position.x > 50)
+        {
+            transform.position = new Vector3(50, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x < -50)
+        {
+            transform.position = new Vector3(-50, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z > 20)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 20);
+        }
+        if (transform.position.z < -20)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -20);
+        }
+
     }
 }
